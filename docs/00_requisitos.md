@@ -11,7 +11,7 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
   - antdesign;
 - [ ] Utilizar api da Marvel ( https://developer.marvel.com/docs );
 - [ ] Disponibilizar em uma URL pública do projeto rodando para avaliação;
-- [ ] Disponibilizar código em repositório Git de sua preferência, "commitando" cada fase do seu processo de desenvolvimento;
+- [x] Disponibilizar código em repositório Git de sua preferência, "commitando" cada fase do seu processo de desenvolvimento;
 - [ ] Seguir layout em [link](./Telas/home.png), respeitando as páginas, features e componentes ( não será avaliado “pixel perfect” ).
 
 ## Requisitos funcionais
