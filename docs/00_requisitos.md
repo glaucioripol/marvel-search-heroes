@@ -35,6 +35,6 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
 - [ ] Persistir os dados de favoritos (para manter os dados após o reload da página);
 - [ ] Layout responsivo;
 - [ ] Utilização de ES6+;
-- [ ] Utilização de ferramentas para garantir a qualidade do código;
+- [x] Utilização de ferramentas para garantir a qualidade do código;
 - [ ] Teste e2e;
 - [ ] CI/CD.
