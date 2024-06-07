@@ -11,6 +11,7 @@ Para um código limpo e de qualidade, é importante que o código siga um padrã
 - [x] [ESLint](https://eslint.org/): Linter de JavaScript e TypeScript.
 - [x] [Prettier](https://prettier.io/): Formatador de código.
 - [x] [Husky](https://typicode.github.io/husky): Para rodar os scripts de lint e format antes de cada commit e push.
+- [x] [git-commit-msg-linter](https://github.com/legend80s/git-commit-msg-linter/blob/master/assets/docs.md#commitlinterrcjson) para padronizar commits com [Conventional Commits](https://www.conventionalcommits.org/).
 
 ## Ferramentas que usam o editor
 

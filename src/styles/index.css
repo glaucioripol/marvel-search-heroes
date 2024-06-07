@@ -1,6 +1,44 @@
+:root {
+  --default-font: "Roboto", sans-serif;
+
+  /* Colors */
+  --red-1: #fdecec;
+  --red-2: #fa7c7c;
+  --red-3: #fa8787;
+  --red-4: #ff0b0b;
+  --red-5: #ff1510;
+  --red-6: #e92429;
+
+  --grey-1: #404040; /* usando: Search heroes ao lado da logo */
+  --grey-2: #464646; /* usando: titulo acima do texto */
+  --grey-3: #969696; /* usando: texto acima do input */
+  --grey-4: #bdbdbd; /* usando: Número de dados encontrados */
+
+  /* Background colors */
+  --background-color: #ffffff;
+  --footer-background-color: var(--red-5);
+
+  /* Font sizes */
+  /* texto página herói: Quadrinhos e Filmes  */
+  --font-x-sm: 18px;
+  /* texto padrão */
+  --font-sm: 20px;
+  /* Descrição do herói */
+  --font-md: 24px;
+  /* Titulo página inicial */
+  --font-xxl: 44px;
+  /* Titulo página do herói, input home */
+  --font-xl: 36px;
+}
+
 /* reset css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: var(--default-font);
 }

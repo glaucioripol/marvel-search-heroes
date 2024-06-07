@@ -1,5 +1,7 @@
 import { Homepage } from "@/pages";
 
-export function App() {
+function App() {
   return <Homepage />;
 }
+
+export default App;
