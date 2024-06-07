@@ -1,6 +1,12 @@
+import { useState } from "react";
 import styles from "./home.module.css";
 
+import mocksResponse from "@/__fixtures__/characters_default_request.json";
+
+const { count, results } = mocksResponse.data;
+
 export function Homepage() {
+  const [like, setLike] = useState(false);
   return (
     <div>
       <header className={styles.header}>
@@ -57,34 +63,95 @@ export function Homepage() {
         </form>
       </div>
 
-      <div className={styles.filters} data-testid="filters-wrapper">
-        <div>
-          <span className={styles.filters__total_results}>
-            Encontrados 20 heróis
-          </span>
-        </div>
-
-        <div className={styles.filters__actions}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}>
-            <img src="/assets/ic_heroi.svg" alt="" />
-            Ordenar por nome - A/Z
-            <img src="/assets/toggle_off.svg" alt="" />
-          </div>
+      <main className={styles.container} data-testid="main-content">
+        <div className={styles.filters} data-testid="filters-wrapper">
           <div>
-            <button type="button">
-              <img src="/assets/favorito_01.svg" alt="" />
-              Somente favoritos
-            </button>
+            <span className={styles.filters__total_results}>
+              Encontrados {count} heróis
+            </span>
+          </div>
+
+          <div className={styles.filters__actions}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+              <img src="/assets/ic_heroi.svg" alt="" />
+              Ordenar por nome - A/Z
+              <img src="/assets/toggle_off.svg" alt="" />
+            </div>
+            <div>
+              <button type="button">
+                <img src="/assets/favorito_01.svg" alt="" />
+                Somente favoritos
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <main></main>
+        <ul className={styles.cards}>
+          {results.map(({ id, thumbnail, name }) => {
+            return (
+              <li key={id}>
+                <div className={styles.card}>
+                  <figure
+                    className={styles.card__figure}
+                    data-testid="card-figure">
+                    <img
+                      className={styles.card__image}
+                      src={`${thumbnail.path}.${thumbnail.extension}`}
+                      alt={`Imagem do personagem ${name}, não é possível detalhar muito por ser algo dinâmico.`}
+                      loading="lazy"
+                      width={260}
+                      height={260}
+                    />
+                  </figure>
+
+                  <div className={styles.card__content}>
+                    <div>
+                      <h2 className={styles.card__title}>{name}</h2>
+                    </div>
+
+                    <div>
+                      <button
+                        type="button"
+                        aria-pressed={like}
+                        data-liked={like}
+                        aria-label={
+                          like
+                            ? "Remover dos favoritos"
+                            : "Adicionar aos favoritos"
+                        }
+                        title={
+                          like
+                            ? "Remover dos favoritos"
+                            : "Adicionar aos favoritos"
+                        }
+                        className={[
+                          styles.like_button,
+                          like ? styles["like_button--liked"] : "",
+                        ].join(" ")}
+                        onClick={(event) => {
+                          event.preventDefault();
+                          event.stopPropagation();
+
+                          setLike((previousLike) => !previousLike);
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </main>
+
+      <footer className={styles.footer}>
+        <p>Feito com ❤️ por Gláucio</p>
+      </footer>
     </div>
   );
 }
