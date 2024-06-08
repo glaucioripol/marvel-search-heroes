@@ -166,24 +166,3 @@
   bottom: 16px;
   right: 16px;
 }
-
-.like_button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-
-  background-image: url("/assets/favorito_02.svg");
-  background-size: contain;
-}
-
-.like_button:focus {
-  outline: 2px dashed var(--red-3);
-}
-
-.like_button.like_button--liked[data-liked="true"] {
-  background-image: url("/assets/favorito_01.svg");
-}

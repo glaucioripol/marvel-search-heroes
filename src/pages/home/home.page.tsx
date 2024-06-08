@@ -1,5 +1,8 @@
-import { useState } from "react";
 import styles from "./home.module.css";
+
+import { useState } from "react";
+
+import { LikeButton } from "@/components";
 
 import mocksResponse from "@/__fixtures__/characters_default_request.json";
 
@@ -7,6 +10,7 @@ const { count, results } = mocksResponse.data;
 
 export function Homepage() {
   const [like, setLike] = useState(false);
+
   return (
     <div>
       <header className={styles.header}>
@@ -115,31 +119,7 @@ export function Homepage() {
                     </div>
 
                     <div>
-                      <button
-                        type="button"
-                        aria-pressed={like}
-                        data-liked={like}
-                        aria-label={
-                          like
-                            ? "Remover dos favoritos"
-                            : "Adicionar aos favoritos"
-                        }
-                        title={
-                          like
-                            ? "Remover dos favoritos"
-                            : "Adicionar aos favoritos"
-                        }
-                        className={[
-                          styles.like_button,
-                          like ? styles["like_button--liked"] : "",
-                        ].join(" ")}
-                        onClick={(event) => {
-                          event.preventDefault();
-                          event.stopPropagation();
-
-                          setLike((previousLike) => !previousLike);
-                        }}
-                      />
+                      <LikeButton liked={like} onLikeChange={setLike} />
                     </div>
                   </div>
                 </div>
