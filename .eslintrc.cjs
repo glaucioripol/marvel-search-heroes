@@ -20,6 +20,17 @@ module.exports = {
     ],
     "no-console": "error",
     "no-magic-numbers": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+        ignoreRestSiblings: true,
+        caughtErrors: "none",
+      },
+    ],
   },
 };
