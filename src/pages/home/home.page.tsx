@@ -1,6 +1,6 @@
 import styles from "./home.module.css";
 
-import { useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 
 import {
   LikeButton,
@@ -8,17 +8,62 @@ import {
   ToggleButton,
 } from "@/components";
 
-import mocksResponse from "@/__fixtures__/characters_default_request.json";
-import { useFavoriteHeroes } from "@/hooks";
-
-const { count, results } = mocksResponse.data;
+import { useFavoriteHeroes, useGetCharacters } from "@/hooks";
+import { GetCharactersParameters } from "@/services";
 
 export function Homepage() {
-  const [toggle, setToggle] = useState(false);
   const [justLiked, setJustLiked] = useState(false);
 
+  const [filters, setFilters] = useState<GetCharactersParameters>({
+    name: undefined,
+    orderBy: "name",
+  });
+
+  const characters = useGetCharacters(filters, !justLiked);
+
   const favoriteHeroes = useFavoriteHeroes();
-  const resultsFiltered = justLiked ? favoriteHeroes.heroes : results;
+  const resultsFiltered = useMemo(
+    () =>
+      justLiked
+        ? favoriteHeroes.heroes.sort((a, b) => {
+            if (filters.orderBy === "name") {
+              return a.name.localeCompare(b.name);
+            }
+
+            return b.name.localeCompare(a.name);
+          })
+        : characters.data,
+    [characters.data, favoriteHeroes.heroes, filters.orderBy, justLiked],
+  );
+
+  const total = resultsFiltered.length;
+
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const getSearchValue = formData.get("search-hero");
+
+    if (!getSearchValue) {
+      return void setFilters((previousFilters) => ({
+        ...previousFilters,
+        name: undefined,
+      }));
+    }
+
+    setFilters((previousFilters) => ({
+      ...previousFilters,
+      name: getSearchValue!.toString(),
+    }));
+  };
+
+  if (characters.states.isLoading) {
+    return (
+      <div>
+        <h1>carregando</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -51,9 +96,7 @@ export function Homepage() {
         <form
           className={styles.search__form}
           data-testid="search-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}>
+          onSubmit={handleSearch}>
           <button
             data-testid="search-button"
             className={styles.search__button}
@@ -80,7 +123,7 @@ export function Homepage() {
         <div className={styles.filters} data-testid="filters-wrapper">
           <div>
             <span className={styles.filters__total_results}>
-              Encontrados {count} heróis
+              Encontrados {total} heróis
             </span>
           </div>
 
@@ -96,8 +139,13 @@ export function Homepage() {
 
             <div>
               <ToggleButton
-                isChecked={toggle}
-                onChange={(isChecked) => setToggle(isChecked)}
+                isChecked={filters.orderBy !== "name"}
+                onChange={(isChecked) => {
+                  setFilters((previousFilters) => ({
+                    ...previousFilters,
+                    orderBy: isChecked ? "-name" : "name",
+                  }));
+                }}
               />
             </div>
 

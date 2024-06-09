@@ -1,4 +1,4 @@
-export type ComicResponse = {
+export type CharactersResponse = {
   code: number;
   status: string;
   copyright: string;

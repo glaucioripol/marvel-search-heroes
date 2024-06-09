@@ -18,11 +18,14 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
 
 - [ ] Página de listagem de personagens (home):
 
-  - [ ] Exibir os 20 primeiros resultados da API;
-  - [ ] Permitir ordenação por nome do personagem;
-  - [ ] Permitir filtrar por nome, pelo campo de busca;
+  - [x] Exibir os 20 primeiros resultados da API;
+  - [x] Permitir ordenação por nome do personagem;
+  - [x] Permitir filtrar por nome, pelo campo de busca;
   - [x] Permitir mostrar apenas os personagens favoritos;
   - [x] Permitir o usuário favoritar/desfavoritar até 5 personagens;
+  - [ ] Permitir o usuário navegar para a página de detalhe do personagem.
+  - [ ] Permitir mudar a quantidade de itens por página.
+  - [ ] permitir paginar a lista de personagens.
 
 - [ ] Página de detalhe do personagem:
   - [ ] Exibir dados do personagem;
