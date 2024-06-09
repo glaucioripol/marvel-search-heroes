@@ -21,7 +21,7 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
   - [ ] Exibir os 20 primeiros resultados da API;
   - [ ] Permitir ordenação por nome do personagem;
   - [ ] Permitir filtrar por nome, pelo campo de busca;
-  - [ ] Permitir mostrar apenas os personagens favoritos;
+  - [ ] - Permitir mostrar apenas os personagens favoritos;
   - [ ] Permitir o usuário favoritar/desfavoritar até 5 personagens;
 
 - [ ] Página de detalhe do personagem:

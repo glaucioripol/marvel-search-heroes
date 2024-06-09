@@ -2,7 +2,11 @@ import styles from "./home.module.css";
 
 import { useState } from "react";
 
-import { LikeButton } from "@/components";
+import {
+  LikeButton,
+  ShowJustFavoritesButton,
+  ToggleButton,
+} from "@/components";
 
 import mocksResponse from "@/__fixtures__/characters_default_request.json";
 
@@ -10,6 +14,8 @@ const { count, results } = mocksResponse.data;
 
 export function Homepage() {
   const [like, setLike] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [justLiked, setJustLiked] = useState(false);
 
   return (
     <div>
@@ -76,21 +82,27 @@ export function Homepage() {
           </div>
 
           <div className={styles.filters__actions}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}>
-              <img src="/assets/ic_heroi.svg" alt="" />
-              Ordenar por nome - A/Z
-              <img src="/assets/toggle_off.svg" alt="" />
+            <div className="text_with_icon">
+              <img
+                src="/assets/ic_heroi.svg"
+                alt="Desenho que representa um herói, uma pessoa de capa, com a mão na cintura e todo o desenho é em vermelho."
+              />
+
+              <span>Ordenar por nome - A/Z</span>
             </div>
+
             <div>
-              <button type="button">
-                <img src="/assets/favorito_01.svg" alt="" />
-                Somente favoritos
-              </button>
+              <ToggleButton
+                isChecked={toggle}
+                onChange={(isChecked) => setToggle(isChecked)}
+              />
+            </div>
+
+            <div>
+              <ShowJustFavoritesButton
+                isActive={justLiked}
+                onClick={setJustLiked}
+              />
             </div>
           </div>
         </div>
