@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ShowJustFavoritesButton > changes attributes and class when clicked 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Exibir somente favoritos"
+    class="_just_liked_button_62679c text_with_icon _just_liked_button--active_62679c "
+    data-testid="just-liked-button"
+    title="Exibir somente favoritos"
+    type="button"
+  >
+    <img
+      alt="Imagem de um coração, representando um favorito."
+      height="18"
+      src="/assets/favorito_01.svg"
+      width="18"
+    />
+    <span>
+      Somente favoritos
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`ShowJustFavoritesButton > renders with correct initial state 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Exibir somente favoritos"
+    class="_just_liked_button_62679c text_with_icon  "
+    data-testid="just-liked-button"
+    title="Exibir somente favoritos"
+    type="button"
+  >
+    <img
+      alt="Imagem de um coração, representando um favorito."
+      height="18"
+      src="/assets/favorito_01.svg"
+      width="18"
+    />
+    <span>
+      Somente favoritos
+    </span>
+  </button>
+</DocumentFragment>
+`;

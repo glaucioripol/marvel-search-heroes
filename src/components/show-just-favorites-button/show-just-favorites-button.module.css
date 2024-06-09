@@ -1,0 +1,26 @@
+.just_liked_button {
+  background-color: transparent;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.just_liked_button:hover {
+  background-color: var(--red-1);
+  outline: 2px dashed var(--red-3);
+}
+
+.just_liked_button.just_liked_button--active {
+  background-color: var(--red-1);
+}
+
+.just_liked_button.just_liked_button--disabled {
+  background-color: var(--grey-4);
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.just_liked_button.just_liked_button--disabled:hover {
+  outline: 2px dashed var(--grey-3);
+}
