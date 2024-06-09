@@ -9,13 +9,16 @@ import {
 } from "@/components";
 
 import mocksResponse from "@/__fixtures__/characters_default_request.json";
+import { useFavoriteHeroes } from "@/hooks";
 
 const { count, results } = mocksResponse.data;
 
 export function Homepage() {
-  const [like, setLike] = useState(false);
   const [toggle, setToggle] = useState(false);
   const [justLiked, setJustLiked] = useState(false);
+
+  const favoriteHeroes = useFavoriteHeroes();
+  const resultsFiltered = justLiked ? favoriteHeroes.heroes : results;
 
   return (
     <div>
@@ -102,23 +105,24 @@ export function Homepage() {
               <ShowJustFavoritesButton
                 isActive={justLiked}
                 onClick={setJustLiked}
+                disabled={!favoriteHeroes.areThereFavoriteHeroes}
               />
             </div>
           </div>
         </div>
 
         <ul className={styles.cards}>
-          {results.map(({ id, thumbnail, name }) => {
+          {resultsFiltered.map((hero) => {
             return (
-              <li key={id}>
+              <li key={hero.id}>
                 <div className={styles.card}>
                   <figure
                     className={styles.card__figure}
                     data-testid="card-figure">
                     <img
                       className={styles.card__image}
-                      src={`${thumbnail.path}.${thumbnail.extension}`}
-                      alt={`Imagem do personagem ${name}, não é possível detalhar muito por ser algo dinâmico.`}
+                      src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+                      alt={`Imagem do personagem ${hero.name}, não é possível detalhar muito por ser algo dinâmico.`}
                       loading="lazy"
                       width={260}
                       height={260}
@@ -127,11 +131,21 @@ export function Homepage() {
 
                   <div className={styles.card__content}>
                     <div>
-                      <h2 className={styles.card__title}>{name}</h2>
+                      <h2 className={styles.card__title}>{hero.name}</h2>
                     </div>
 
                     <div>
-                      <LikeButton liked={like} onLikeChange={setLike} />
+                      <LikeButton
+                        liked={favoriteHeroes.actions.has(hero.id)}
+                        onLikeChange={() => {
+                          if (favoriteHeroes.actions.has(hero.id)) {
+                            favoriteHeroes.actions.remove(hero.id);
+                            return;
+                          }
+
+                          favoriteHeroes.actions.add(hero);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
