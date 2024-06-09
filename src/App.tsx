@@ -1,7 +1,10 @@
+import { ErrorBoundary } from "@/components";
 import { Homepage } from "@/pages";
 
-function App() {
-  return <Homepage />;
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <Homepage />;
+    </ErrorBoundary>
+  );
 }
-
-export default App;
