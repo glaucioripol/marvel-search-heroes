@@ -1,0 +1,32 @@
+.card {
+  --card-width: 260px;
+  --image-width: var(--card-width);
+  --image-height: var(--image-width);
+
+  display: flex;
+  flex-direction: column;
+
+  width: var(--card-width);
+
+  position: relative;
+}
+
+.card .card__figure {
+  --border-size: 4px;
+
+  margin: 0;
+  padding: 0;
+  border-bottom: var(--border-size) solid var(--red-3);
+  height: calc(var(--image-height) + var(--border-size));
+}
+
+.card .card__content {
+  display: flex;
+  padding-block: 24px;
+  justify-content: space-between;
+}
+
+.card .card__title {
+  color: var(--grey-2);
+  font-size: var(--font-sm);
+}

@@ -1,0 +1,16 @@
+.footer {
+  background-color: var(--red-5);
+  position: relative;
+  height: 80px;
+  margin-block-start: 10rem;
+  width: 100%;
+}
+
+.footer p {
+  color: #fff;
+  font-size: var(--font-x-sm);
+
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}

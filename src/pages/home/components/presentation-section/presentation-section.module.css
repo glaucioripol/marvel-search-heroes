@@ -1,0 +1,22 @@
+.presentation_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.presentation_section .presentation_section__title {
+  color: var(--grey-2);
+  font-size: var(--font-xl);
+  text-transform: uppercase;
+}
+
+.presentation_section .presentation_section__description {
+  color: var(--grey-3);
+  font-size: var(--font-x-sm);
+}
+
+.presentation_section
+  .presentation_section__title
+  + .presentation_section__description {
+  margin-block-start: 16px;
+}

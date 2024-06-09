@@ -1,0 +1,16 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 48px;
+}
+
+.filters .filters__total_results {
+  color: var(--grey-4);
+  font-size: var(--font-x-sm);
+}
+
+.filters .filters__actions {
+  align-items: center;
+  display: flex;
+  gap: 32px;
+}
