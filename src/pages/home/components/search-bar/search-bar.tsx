@@ -2,7 +2,11 @@ import styles from "./search-bar.module.css";
 
 import { SearchBarProperties } from "./search-bar.types";
 
-export function SearchBar({ disabled, handleSearch }: SearchBarProperties) {
+export function SearchBar({
+  disabled,
+  handleSearch,
+  inputValue,
+}: SearchBarProperties) {
   return (
     <div className={styles.search} data-testid="search-bar-wrapper">
       <form
@@ -29,6 +33,7 @@ export function SearchBar({ disabled, handleSearch }: SearchBarProperties) {
           name="search-hero"
           maxLength={120}
           disabled={disabled}
+          defaultValue={inputValue}
         />
       </form>
     </div>

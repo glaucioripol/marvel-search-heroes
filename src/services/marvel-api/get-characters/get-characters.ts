@@ -25,3 +25,13 @@ export async function getCharacters({
     })
     .then(({ data }) => data);
 }
+
+export async function getCharacterById(id: number) {
+  return marvelApiClient
+    .get<CharactersResponse>(`/characters/${id}`, {
+      params: {
+        apikey: environmentsVariables.VITE_MARVEL_API_KEY,
+      },
+    })
+    .then(({ data }) => data);
+}

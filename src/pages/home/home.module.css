@@ -9,3 +9,12 @@
   gap: 44px;
   list-style: none;
 }
+
+.cards a {
+  text-decoration: none;
+}
+
+.cards a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--red-4);
+}

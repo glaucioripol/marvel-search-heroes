@@ -32,6 +32,7 @@ exports[`SearchBar > calls handleSearch function when form is submitted 1`] = `
       placeholder="Procure por heróis"
       title="Procure por heróis"
       type="search"
+      value=""
     />
   </form>
 </div>
@@ -71,6 +72,7 @@ exports[`SearchBar > disables search button and input field when disabled prop i
       placeholder="Procure por heróis"
       title="Procure por heróis"
       type="search"
+      value=""
     />
   </form>
 </div>
@@ -108,6 +110,7 @@ exports[`SearchBar > has search button and input field 1`] = `
       placeholder="Procure por heróis"
       title="Procure por heróis"
       type="search"
+      value=""
     />
   </form>
 </div>
