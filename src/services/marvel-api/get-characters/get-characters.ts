@@ -1,7 +1,7 @@
 import { CharactersResponse } from "@/@types/marvel-api-response.types";
 
 import { marvelApiClient } from "../api-client";
-import { environmentsVariables } from "../../environments-variables";
+import { environmentsVariables } from "../../environments-variables/environments-variables";
 
 import { GetCharactersParameters } from "./get-characters.types";
 

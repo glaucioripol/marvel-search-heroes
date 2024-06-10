@@ -1,13 +1,8 @@
+import styles from "./hero-card.module.css";
+
 import { LikeButton } from "@/components";
 
-import styles from "./hero-card.module.css";
-import { Hero } from "@/@types/marvel-api-response.types";
-
-export type HeroCardProperties = Readonly<{
-  hero: Hero;
-  isLiked: boolean;
-  handleFavorite: (hero: Hero) => () => void;
-}>;
+import { HeroCardProperties } from "./hero-card.types";
 
 export function HeroCard({
   hero,

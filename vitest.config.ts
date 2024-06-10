@@ -26,6 +26,8 @@ export default mergeConfig(
 
           // removing entry point files from coverage
           "src/main.tsx",
+          "src/App.tsx",
+          "src/components/error-boundary",
         ],
         include: ["src/**/*.{ts,tsx}"],
       },

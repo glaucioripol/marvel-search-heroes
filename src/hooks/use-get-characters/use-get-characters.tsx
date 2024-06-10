@@ -12,7 +12,7 @@ const DEFAULT_DATA = {
 
 export function useGetCharacters(
   parameters: GetCharactersParameters,
-  doRequest: boolean,
+  doRequest = true,
 ) {
   const query = useQuery({
     queryKey: ["characters", Object.values(parameters)],
