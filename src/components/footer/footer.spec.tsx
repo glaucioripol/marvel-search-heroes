@@ -9,8 +9,10 @@ import {
 import { Footer } from "./footer";
 
 describe("Footer component", () => {
+  let component: ReturnType<typeof defaultRender>;
+
   beforeAll(() => {
-    defaultRender(<Footer />);
+    component = defaultRender(<Footer />);
   });
 
   it("should render without crashing", () => {
@@ -18,6 +20,6 @@ describe("Footer component", () => {
   });
 
   it("should match snapshot", () => {
-    expect(screen).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 });

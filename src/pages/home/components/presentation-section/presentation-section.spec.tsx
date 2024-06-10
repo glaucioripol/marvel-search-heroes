@@ -10,8 +10,10 @@ import {
 import { PresentationSection } from "./presentation-section";
 
 describe("PresentationSection component", () => {
+  let component: ReturnType<typeof defaultRender>;
+
   beforeEach(() => {
-    defaultRender(<PresentationSection />);
+    component = defaultRender(<PresentationSection />);
   });
 
   it("should render title correctly", () => {
@@ -29,6 +31,6 @@ describe("PresentationSection component", () => {
   });
 
   it("should match snapshot", () => {
-    expect(screen).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 });

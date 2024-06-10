@@ -58,6 +58,7 @@ describe("HeroCard component", () => {
   });
 
   it("should match snapshot", () => {
-    expect(screen).toMatchSnapshot();
+    const { asFragment } = sutHeroCard();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

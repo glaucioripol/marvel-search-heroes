@@ -9,7 +9,7 @@ import {
   PresentationSection,
   SearchBar,
 } from "./components";
-import { useHomePage } from "./use-home-page";
+import { useHomePage } from "./hooks";
 
 const VOID_ARRAY_LENGTH = 0;
 

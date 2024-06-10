@@ -9,8 +9,9 @@ import {
 import { Header } from "./header";
 
 describe("Header component", () => {
+  let component: ReturnType<typeof defaultRender>;
   beforeAll(() => {
-    defaultRender(<Header />);
+    component = defaultRender(<Header />);
   });
 
   it("should render without crashing", () => {
@@ -18,6 +19,6 @@ describe("Header component", () => {
   });
 
   it("should match snapshot", () => {
-    expect(screen).toMatchSnapshot();
+    expect(component.asFragment()).toMatchSnapshot();
   });
 });

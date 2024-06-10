@@ -100,5 +100,6 @@ export function useHomePage() {
     resultsFiltered,
     showJustFavorites,
     total,
+    setFilters,
   };
 }
