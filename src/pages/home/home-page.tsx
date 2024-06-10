@@ -35,7 +35,7 @@ export function Homepage() {
 
       <PresentationSection />
 
-      <SearchBar handleSearch={handleSearch} inputValue={filters.name!} />
+      <SearchBar handleSearch={handleSearch} inputValue={filters.name} />
 
       <main className={styles.container} data-testid="main-content">
         <Filters
