@@ -1,0 +1,19 @@
+.like_button {
+  background-color: transparent;
+  background-image: url("/assets/favorito_02.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  outline: 2px dashed transparent;
+  width: 20px;
+}
+
+.like_button:focus {
+  outline: 2px dashed var(--red-3);
+}
+
+.like_button.like_button--liked[data-liked="true"] {
+  background-image: url("/assets/favorito_01.svg");
+}

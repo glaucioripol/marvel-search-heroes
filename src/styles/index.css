@@ -42,3 +42,10 @@ body {
   background-color: var(--background-color);
   font-family: var(--default-font);
 }
+
+.text_with_icon {
+  align-items: center;
+  color: var(--red-3);
+  display: flex;
+  gap: 16px;
+}

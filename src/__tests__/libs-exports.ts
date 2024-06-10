@@ -1,11 +1,10 @@
-import {
+export {
   act,
-  render,
+  fireEvent,
+  render as defaultRender,
   renderHook,
   screen,
   waitFor,
 } from "@testing-library/react";
 
 export * from "vitest";
-
-export { act, render as defaultRender, renderHook, screen, waitFor };

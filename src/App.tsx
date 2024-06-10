@@ -1,7 +1,13 @@
+import { ErrorBoundary } from "@/components";
 import { Homepage } from "@/pages";
+import { ReactQueryProvider } from "./libs";
 
-function App() {
-  return <Homepage />;
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <ReactQueryProvider>
+        <Homepage />
+      </ReactQueryProvider>
+    </ErrorBoundary>
+  );
 }
-
-export default App;

@@ -1,0 +1,114 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchBar > calls handleSearch function when form is submitted 1`] = `
+<div
+  class="_search_04ea97"
+  data-testid="search-bar-wrapper"
+>
+  <form
+    class="_search__form_04ea97"
+    data-testid="search-form"
+  >
+    <button
+      aria-label="Buscar por heróis"
+      class="_search__button_04ea97"
+      data-testid="search-button"
+      title="Buscar por heróis"
+      type="submit"
+    >
+      <img
+        alt=""
+        height="29"
+        src="/assets/ic_busca.svg"
+        width="29"
+      />
+    </button>
+    <input
+      aria-label="Procure por heróis"
+      class="_search__input_04ea97"
+      data-testid="search-input"
+      maxlength="120"
+      name="search-hero"
+      placeholder="Procure por heróis"
+      title="Procure por heróis"
+      type="search"
+    />
+  </form>
+</div>
+`;
+
+exports[`SearchBar > disables search button and input field when disabled prop is true 1`] = `
+<div
+  class="_search_04ea97"
+  data-testid="search-bar-wrapper"
+>
+  <form
+    class="_search__form_04ea97"
+    data-testid="search-form"
+  >
+    <button
+      aria-label="Buscar por heróis"
+      class="_search__button_04ea97"
+      data-testid="search-button"
+      disabled=""
+      title="Buscar por heróis"
+      type="submit"
+    >
+      <img
+        alt=""
+        height="29"
+        src="/assets/ic_busca.svg"
+        width="29"
+      />
+    </button>
+    <input
+      aria-label="Procure por heróis"
+      class="_search__input_04ea97"
+      data-testid="search-input"
+      disabled=""
+      maxlength="120"
+      name="search-hero"
+      placeholder="Procure por heróis"
+      title="Procure por heróis"
+      type="search"
+    />
+  </form>
+</div>
+`;
+
+exports[`SearchBar > has search button and input field 1`] = `
+<div
+  class="_search_04ea97"
+  data-testid="search-bar-wrapper"
+>
+  <form
+    class="_search__form_04ea97"
+    data-testid="search-form"
+  >
+    <button
+      aria-label="Buscar por heróis"
+      class="_search__button_04ea97"
+      data-testid="search-button"
+      title="Buscar por heróis"
+      type="submit"
+    >
+      <img
+        alt=""
+        height="29"
+        src="/assets/ic_busca.svg"
+        width="29"
+      />
+    </button>
+    <input
+      aria-label="Procure por heróis"
+      class="_search__input_04ea97"
+      data-testid="search-input"
+      maxlength="120"
+      name="search-hero"
+      placeholder="Procure por heróis"
+      title="Procure por heróis"
+      type="search"
+    />
+  </form>
+</div>
+`;

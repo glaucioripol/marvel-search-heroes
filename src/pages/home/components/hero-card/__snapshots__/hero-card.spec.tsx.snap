@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeroCard component > should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="_card_5168af"
+  >
+    <figure
+      class="_card__figure_5168af"
+      data-testid="card-figure"
+    >
+      <img
+        alt="Imagem do personagem 3-D Man, não é possível detalhar muito por ser algo dinâmico."
+        class="_card__image_5168af"
+        height="260"
+        loading="lazy"
+        src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
+        width="260"
+      />
+    </figure>
+    <div
+      class="_card__content_5168af"
+    >
+      <div>
+        <h2
+          class="_card__title_5168af"
+        >
+          3-D Man
+        </h2>
+      </div>
+      <div>
+        <button
+          aria-label="Adicionar aos favoritos"
+          aria-pressed="false"
+          class="_like_button_7a6327 "
+          data-liked="false"
+          data-testid="like-button-default"
+          title="Adicionar aos favoritos"
+          type="button"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

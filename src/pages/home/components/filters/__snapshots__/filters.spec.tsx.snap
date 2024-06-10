@@ -1,0 +1,68 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Filters component > should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="_filters_a2f514"
+    data-testid="filters-wrapper"
+  >
+    <div>
+      <span
+        class="_filters__total_results_a2f514"
+      >
+        Encontrados 10 heróis
+      </span>
+    </div>
+    <div
+      class="_filters__actions_a2f514"
+    >
+      <div
+        class="text_with_icon"
+      >
+        <img
+          alt="Desenho que representa um herói, uma pessoa de capa, com a mão na cintura e todo o desenho é em vermelho."
+          height="27"
+          src="/assets/ic_heroi.svg"
+          title="Desenho que representa um herói, uma pessoa de capa, com a mão na cintura e todo o desenho é em vermelho."
+          width="18"
+        />
+        <span>
+          Ordenar por nome - A/Z
+        </span>
+      </div>
+      <div>
+        <div
+          aria-checked="false"
+          aria-label="Ativar"
+          aria-labelledby="Ativar"
+          class="_toggle_button_7fc16a "
+          data-testid="toggle-button-default"
+          role="checkbox"
+          tabindex="0"
+          title="Ativar"
+        />
+      </div>
+      <div>
+        <button
+          aria-label="Exibir somente favoritos"
+          class="_just_liked_button_62679c text_with_icon  _just_liked_button--disabled_62679c"
+          data-testid="just-liked-button"
+          disabled=""
+          title="Exibir somente favoritos"
+          type="button"
+        >
+          <img
+            alt="Imagem de um coração, representando um favorito."
+            height="18"
+            src="/assets/favorito_01.svg"
+            width="18"
+          />
+          <span>
+            Somente favoritos
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LikeButton > changes aria-label and title attributes when clicked 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Adicionar aos favoritos"
+    aria-pressed="false"
+    class="_like_button_7a6327 "
+    data-liked="false"
+    data-testid="like-button-default"
+    title="Adicionar aos favoritos"
+    type="button"
+  />
+</DocumentFragment>
+`;
+
+exports[`LikeButton > changes aria-label and title attributes when clicked 2`] = `
+<DocumentFragment>
+  <button
+    aria-label="Remover dos favoritos"
+    aria-pressed="true"
+    class="_like_button_7a6327 _like_button--liked_7a6327"
+    data-liked="true"
+    data-testid="like-button-default"
+    title="Remover dos favoritos"
+    type="button"
+  />
+</DocumentFragment>
+`;
+
+exports[`LikeButton > changes aria-pressed and data-liked attributes when clicked 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Adicionar aos favoritos"
+    aria-pressed="false"
+    class="_like_button_7a6327 "
+    data-liked="false"
+    data-testid="like-button-default"
+    title="Adicionar aos favoritos"
+    type="button"
+  />
+</DocumentFragment>
+`;
+
+exports[`LikeButton > changes aria-pressed and data-liked attributes when clicked 2`] = `
+<DocumentFragment>
+  <button
+    aria-label="Remover dos favoritos"
+    aria-pressed="true"
+    class="_like_button_7a6327 _like_button--liked_7a6327"
+    data-liked="true"
+    data-testid="like-button-default"
+    title="Remover dos favoritos"
+    type="button"
+  />
+</DocumentFragment>
+`;
+
+exports[`LikeButton > changes class when clicked 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Remover dos favoritos"
+    aria-pressed="true"
+    class="_like_button_7a6327 _like_button--liked_7a6327"
+    data-liked="true"
+    data-testid="like-button-default"
+    title="Remover dos favoritos"
+    type="button"
+  />
+</DocumentFragment>
+`;
+
+exports[`LikeButton > renders with correct initial state 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="Adicionar aos favoritos"
+    aria-pressed="false"
+    class="_like_button_7a6327 "
+    data-liked="false"
+    data-testid="like-button-default"
+    title="Adicionar aos favoritos"
+    type="button"
+  />
+</DocumentFragment>
+`;

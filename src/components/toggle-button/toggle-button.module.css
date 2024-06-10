@@ -1,0 +1,21 @@
+.toggle_button {
+  background-image: url("/assets/toggle_off.svg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-block;
+  outline: 2px dashed transparent;
+  height: 41px;
+  width: 75px;
+  transition: background-image 0.05s ease-in-out;
+}
+
+.toggle_button:focus {
+  outline: 2px dashed var(--red-3);
+}
+
+.toggle_button.toggle_button--active,
+.toggle_button[aria-checked="true"] {
+  background-image: url("/assets/toggle_on.svg");
+}
