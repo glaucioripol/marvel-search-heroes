@@ -10,7 +10,7 @@ export function HeroCard({
   handleFavorite,
 }: HeroCardProperties) {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} data-testid="hero-card">
       <figure className={styles.card__figure} data-testid="card-figure">
         <img
           className={styles.card__image}

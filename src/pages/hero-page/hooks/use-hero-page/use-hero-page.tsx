@@ -5,8 +5,7 @@ import { Hero } from "@/@types/marvel-api-response.types";
 
 import { useFavoriteHeroes } from "@/hooks";
 import { useQueries } from "@/libs";
-
-import mockComicsResponse from "@/__fixtures__/comic_result.json";
+import { getComicBy } from "@/services";
 
 const INDEX_TO_FIRST_ITEM = 0;
 const TOTAL_COMICS_TO_SHOW = 10;
@@ -22,9 +21,7 @@ export function useHeroPage() {
       .map((comic) => ({
         queryKey: ["comic", comic.resourceURI],
         queryFn: async () => {
-          // return getComicBy(comic.resourceURI);
-
-          return mockComicsResponse;
+          return getComicBy(comic.resourceURI);
         },
       })),
   });

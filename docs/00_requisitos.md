@@ -40,5 +40,5 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
 - [ ] Layout responsivo;
 - [x] Utilização de ES6+;
 - [x] Utilização de ferramentas para garantir a qualidade do código;
-- [ ] Teste e2e;
+- [x] Teste e2e;
 - [x] CI/CD.
