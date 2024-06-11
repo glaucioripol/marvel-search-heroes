@@ -1,18 +1,27 @@
 import styles from "./search-bar.module.css";
 
+import { useCallback } from "react";
+
 import { SearchBarProperties } from "./search-bar.types";
 
-export function SearchBar({
-  disabled,
-  handleSearch,
-  inputValue,
-}: SearchBarProperties) {
+export function SearchBar({ handleSearch, disabled }: SearchBarProperties) {
+  const handleOnSearch = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const search = new FormData(event.currentTarget);
+      const value = search.get("search-hero") as string;
+
+      handleSearch?.(value);
+    },
+    [handleSearch],
+  );
+
   return (
     <div className={styles.search} data-testid="search-bar-wrapper">
       <form
         className={styles.search__form}
         data-testid="search-form"
-        onSubmit={handleSearch}>
+        onSubmit={handleOnSearch}>
         <button
           data-testid="search-button"
           className={styles.search__button}
@@ -23,8 +32,8 @@ export function SearchBar({
           <img
             src="/assets/ic_busca.svg"
             alt="Ícone de uma lupa representando a busca."
-            width={29}
-            height={29}
+            width={22}
+            height={22}
           />
         </button>
 
@@ -33,12 +42,12 @@ export function SearchBar({
           type="search"
           aria-label="Procure por heróis"
           title="Procure por heróis"
-          placeholder="Procure por heróis"
+          placeholder="Procure por heróis (Eu funciono de verdade!)"
           data-testid="search-input"
           name="search-hero"
           maxLength={120}
           disabled={disabled}
-          defaultValue={inputValue}
+          required
         />
       </form>
     </div>

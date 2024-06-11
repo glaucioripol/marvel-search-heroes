@@ -1,5 +1,5 @@
 :root {
-  --default-font: "Roboto", sans-serif;
+  --default-font: "Open Sans", sans-serif;
 
   /* Colors */
   --red-1: #fdecec;
@@ -13,12 +13,14 @@
   --grey-2: #464646; /* usando: titulo acima do texto */
   --grey-3: #969696; /* usando: texto acima do input */
   --grey-4: #bdbdbd; /* usando: Número de dados encontrados */
+  --grey-5: #6d706d;
 
   /* Background colors */
   --background-color: #ffffff;
   --footer-background-color: var(--red-5);
 
   /* Font sizes */
+  --font-xx-sm: 16px;
   /* texto página herói: Quadrinhos e Filmes  */
   --font-x-sm: 18px;
   /* texto padrão */

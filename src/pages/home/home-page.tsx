@@ -10,6 +10,7 @@ import {
   SearchBar,
 } from "./components";
 import { useHomePage } from "./hooks";
+import { Link } from "react-router-dom";
 
 const VOID_ARRAY_LENGTH = 0;
 
@@ -25,6 +26,7 @@ export function Homepage() {
     isAlphabeticalOrderEnabled,
     handleShowJustFavorites,
     handleFavorite,
+    filters,
   } = useHomePage();
 
   return (
@@ -33,7 +35,7 @@ export function Homepage() {
 
       <PresentationSection />
 
-      <SearchBar handleSearch={handleSearch} />
+      <SearchBar handleSearch={handleSearch} inputValue={filters.name} />
 
       <main className={styles.container} data-testid="main-content">
         <Filters
@@ -54,11 +56,13 @@ export function Homepage() {
             <ul className={styles.cards}>
               {resultsFiltered.map((hero) => (
                 <li key={hero.id}>
-                  <HeroCard
-                    hero={hero}
-                    isLiked={favoriteHeroes.actions.has(hero.id)}
-                    handleFavorite={handleFavorite}
-                  />
+                  <Link to={`/hero/${hero.id}`} data-testid="hero-link">
+                    <HeroCard
+                      hero={hero}
+                      isLiked={favoriteHeroes.actions.has(hero.id)}
+                      handleFavorite={handleFavorite}
+                    />
+                  </Link>
                 </li>
               ))}
             </ul>

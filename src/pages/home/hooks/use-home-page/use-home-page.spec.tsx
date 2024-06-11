@@ -16,6 +16,7 @@ import mockResponse from "@/__fixtures__/characters_default_request.json";
 import { ReactQueryProvider } from "@/libs";
 import { environmentsVariables } from "@/services";
 import { FormEvent } from "react";
+import { createMemoryRouter, RouterProvider } from "react-router-dom";
 
 describe("useHomePage", () => {
   beforeEach(() => {
@@ -30,7 +31,13 @@ describe("useHomePage", () => {
 
   const sutUseHomePage = () => {
     const hookRendered = renderHook(() => useHomePage(), {
-      wrapper: ReactQueryProvider,
+      wrapper: ({ children }) => (
+        <ReactQueryProvider>
+          <RouterProvider
+            router={createMemoryRouter([{ path: "/", element: children }])}
+          />
+        </ReactQueryProvider>
+      ),
     });
 
     const mockFormEvent = (value = "") => {
@@ -57,10 +64,10 @@ describe("useHomePage", () => {
     const mockHeroName = "Spider";
     act(() => {
       const formEventMocked = mockFormEvent(mockHeroName);
-      result.current.handleSearch(formEventMocked);
+      result.current?.handleSearch(formEventMocked);
     });
 
-    expect(result.current.filters.name).toBe(mockHeroName);
+    expect(result.current?.filters.name).toBe(mockHeroName);
   });
 
   it("should handle search with empty value correctly", () => {
@@ -68,10 +75,10 @@ describe("useHomePage", () => {
 
     act(() => {
       const formEventMocked = mockFormEvent();
-      result.current.handleSearch(formEventMocked);
+      result.current?.handleSearch(formEventMocked);
     });
 
-    expect(result.current.filters.name).toBeUndefined();
+    expect(result.current?.filters.name).toBeFalsy();
   });
 
   it("should handle favorite correctly", () => {
@@ -81,40 +88,40 @@ describe("useHomePage", () => {
     const hero = mockResponse.data.results[INDEX_OF_HERO];
 
     act(() => {
-      result.current.handleFavorite(hero)();
+      result.current?.handleFavorite(hero)();
     });
 
-    expect(result.current.favoriteHeroes.actions.has(hero.id)).toBe(true);
+    expect(result.current?.favoriteHeroes.actions.has(hero.id)).toBe(true);
   });
 
   it("should handle alphabetical order correctly", () => {
     const { result } = sutUseHomePage();
 
     act(() => {
-      result.current.handleAlphabeticalOrder(true);
+      result.current?.handleAlphabeticalOrder(true);
     });
 
-    expect(result.current.filters.orderBy).toBe("-name");
+    expect(result.current?.filters.orderBy).toBe("-name");
   });
 
   it("should handle alphabetical order correctly reverse", () => {
     const { result } = sutUseHomePage();
 
     act(() => {
-      result.current.handleAlphabeticalOrder(false);
+      result.current?.handleAlphabeticalOrder(false);
     });
 
-    expect(result.current.filters.orderBy).toBe("name");
+    expect(result.current?.filters.orderBy).toBe("name");
   });
 
   it("should handle show just favorites correctly", () => {
     const { result } = sutUseHomePage();
 
     act(() => {
-      result.current.handleShowJustFavorites();
+      result.current?.handleShowJustFavorites();
     });
 
-    expect(result.current.showJustFavorites).toBe(true);
+    expect(result.current?.showJustFavorites).toBe(true);
   });
 
   it("should handle resultsFiltered correctly and sort by -name and show just de favorite", () => {
@@ -123,47 +130,47 @@ describe("useHomePage", () => {
     const [hero1, hero2, hero3, hero4] = mockResponse.data.results;
 
     act(() => {
-      result.current.handleFavorite(hero1)();
-      result.current.handleFavorite(hero2)();
-      result.current.handleFavorite(hero3)();
-      result.current.handleFavorite(hero4)();
-      result.current.handleFavorite(hero2)();
+      result.current?.handleFavorite(hero1)();
+      result.current?.handleFavorite(hero2)();
+      result.current?.handleFavorite(hero3)();
+      result.current?.handleFavorite(hero4)();
+      result.current?.handleFavorite(hero2)();
     });
 
     act(() => {
-      result.current.handleShowJustFavorites();
+      result.current?.handleShowJustFavorites();
     });
 
     act(() => {
-      result.current.setFilters((previous) => ({
+      result.current?.setFilters((previous) => ({
         ...previous,
         orderBy: "-name",
       }));
     });
 
-    const sortedHeroes = [...result.current.favoriteHeroes.heroes].sort(
-      (a, b) => b.name.localeCompare(a.name),
-    );
+    const sortedHeroes = [
+      ...(result.current?.favoriteHeroes.heroes ?? []),
+    ].sort((a, b) => b.name.localeCompare(a.name));
 
-    expect(result.current.resultsFiltered).toEqual(sortedHeroes);
+    expect(result.current?.resultsFiltered).toEqual(sortedHeroes);
   });
 
   it("should handle resultsFiltered correctly and sort it by name", () => {
     const { result } = sutUseHomePage();
 
     act(() => {
-      result.current.handleShowJustFavorites();
+      result.current?.handleShowJustFavorites();
     });
 
     act(() => {
-      result.current.setFilters((previous) => ({
+      result.current?.setFilters((previous) => ({
         ...previous,
         orderBy: "name",
       }));
     });
 
-    expect(result.current.resultsFiltered).toEqual(
-      result.current.favoriteHeroes.heroes,
+    expect(result.current?.resultsFiltered).toEqual(
+      result.current?.favoriteHeroes.heroes,
     );
   });
 
@@ -171,11 +178,11 @@ describe("useHomePage", () => {
     const { result } = sutUseHomePage();
 
     act(() => {
-      result.current.handleShowJustFavorites();
+      result.current?.handleShowJustFavorites();
     });
 
-    expect(result.current.total).toEqual(
-      result.current.favoriteHeroes.heroes.length,
+    expect(result.current?.total).toEqual(
+      result.current?.favoriteHeroes.heroes.length,
     );
   });
 
@@ -183,7 +190,7 @@ describe("useHomePage", () => {
     const { result } = sutUseHomePage();
 
     act(() => {
-      result.current.setFilters((previous) => ({
+      result.current?.setFilters((previous) => ({
         ...previous,
         orderBy: "name",
       }));
@@ -193,28 +200,28 @@ describe("useHomePage", () => {
       a.name.localeCompare(b.name),
     );
 
-    expect(result.current.resultsFiltered).toEqual(sortedHeroes);
+    expect(result.current?.resultsFiltered).toEqual(sortedHeroes);
   });
 
   it("should add one favorite, after remove and check each", async () => {
     const { result } = sutUseHomePage();
 
-    const [hero] = result.current.resultsFiltered;
+    const [hero] = result.current?.resultsFiltered ?? [];
 
     act(() => {
-      result.current.handleFavorite(hero)();
+      result.current?.handleFavorite(hero)();
     });
 
     await waitFor(() => {
-      expect(result.current.favoriteHeroes.heroes).toContainEqual(hero);
+      expect(result.current?.favoriteHeroes.heroes).toContainEqual(hero);
     });
 
     act(() => {
-      result.current.handleFavorite(hero)();
+      result.current?.handleFavorite(hero)();
     });
 
     await waitFor(() => {
-      expect(result.current.favoriteHeroes.heroes).not.toContainEqual(hero);
+      expect(result.current?.favoriteHeroes.heroes).not.toContainEqual(hero);
     });
   });
 });

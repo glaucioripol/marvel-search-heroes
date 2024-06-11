@@ -1,38 +1,92 @@
+import { FormEvent, useCallback, useMemo } from "react";
+
+import { useSearchParams } from "react-router-dom";
+
 import { Hero } from "@/@types/marvel-api-response.types";
-import { useGetCharacters, useFavoriteHeroes } from "@/hooks";
+
+import { useFavoriteHeroes, useGetCharacters } from "@/hooks";
 import { GetCharactersParameters } from "@/services";
-import { useState, useMemo, useCallback, FormEvent } from "react";
+import { HomeFiltersParameters } from "./use-home-page.types";
 
 const DEFAULT_ORDER_BY = "name";
 
 export function useHomePage() {
-  const [showJustFavorites, setShowJustFavorites] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [filters, setFilters] = useState<GetCharactersParameters>({
-    name: undefined,
-    orderBy: DEFAULT_ORDER_BY,
-  });
+  const currentFilters = useMemo<HomeFiltersParameters>(() => {
+    const result: Record<string, string | null> = {};
 
-  const characters = useGetCharacters(filters, !showJustFavorites);
+    searchParams.forEach((value, key) => {
+      if (value === null) {
+        return;
+      }
+      result[key] = value;
+    });
+
+    return result as never as HomeFiltersParameters;
+  }, [searchParams]);
+
+  const setFilters = useCallback(
+    (cb: (p: HomeFiltersParameters) => HomeFiltersParameters) => {
+      setSearchParams((previous) => {
+        const received = cb(currentFilters);
+
+        const newValues = received;
+
+        for (const key in newValues) {
+          const keyTyped = key as keyof HomeFiltersParameters;
+
+          if (newValues[keyTyped] === null) {
+            previous.delete(key);
+            continue;
+          }
+
+          previous.set(key, String(newValues[keyTyped]));
+        }
+
+        return previous;
+      });
+    },
+    [currentFilters, setSearchParams],
+  );
+
+  const showJustFavorites = currentFilters.showJustFavorites === "true";
+
+  const characters = useGetCharacters(
+    currentFilters as GetCharactersParameters,
+    !showJustFavorites,
+  );
 
   const favoriteHeroes = useFavoriteHeroes();
 
   const resultsFiltered = useMemo(() => {
     if (showJustFavorites) {
-      return favoriteHeroes.heroes.sort((a, b) => {
-        if (filters.orderBy === DEFAULT_ORDER_BY) {
-          return a.name.localeCompare(b.name);
-        }
+      return (
+        favoriteHeroes.heroes
+          .filter((hero) => {
+            if (!currentFilters.name) {
+              return true;
+            }
+            return hero.name
+              .toLowerCase()
+              .includes(currentFilters.name.toLowerCase());
+          })
+          .sort((a, b) => {
+            if (currentFilters.orderBy === DEFAULT_ORDER_BY) {
+              return a.name.localeCompare(b.name);
+            }
 
-        return b.name.localeCompare(a.name);
-      });
+            return b.name.localeCompare(a.name);
+          }) ?? []
+      );
     }
 
-    return characters.data;
+    return characters.data ?? [];
   }, [
     characters.data,
+    currentFilters.name,
+    currentFilters.orderBy,
     favoriteHeroes.heroes,
-    filters.orderBy,
     showJustFavorites,
   ]);
 
@@ -43,21 +97,23 @@ export function useHomePage() {
       event.preventDefault();
 
       const formData = new FormData(event.currentTarget);
-      const getSearchValue = formData.get("search-hero");
+      const currentNameToFilter = formData.get("search-hero") as string;
 
-      if (!getSearchValue) {
-        return void setFilters((previousFilters) => ({
-          ...previousFilters,
-          name: undefined,
-        }));
+      if (!currentNameToFilter) {
+        setSearchParams((previous) => {
+          previous.delete("name");
+          return previous;
+        });
+
+        return;
       }
 
-      setFilters((previousFilters) => ({
-        ...previousFilters,
-        name: getSearchValue!.toString(),
-      }));
+      setSearchParams((previous) => {
+        previous.set("name", currentNameToFilter);
+        return previous;
+      });
     },
-    [setFilters],
+    [setSearchParams],
   );
 
   const handleFavorite = useCallback(
@@ -74,24 +130,39 @@ export function useHomePage() {
 
   const handleAlphabeticalOrder = useCallback(
     (isChecked: boolean) => {
-      setFilters((previousFilters) => ({
-        ...previousFilters,
-        orderBy: isChecked ? "-name" : DEFAULT_ORDER_BY,
-      }));
+      setSearchParams((previous) => {
+        if (isChecked) {
+          previous.set("orderBy", "-name");
+          return previous;
+        }
+
+        previous.set("orderBy", DEFAULT_ORDER_BY);
+
+        return previous;
+      });
     },
-    [setFilters],
+    [setSearchParams],
   );
 
-  const isAlphabeticalOrderEnabled = filters.orderBy !== DEFAULT_ORDER_BY;
+  const isAlphabeticalOrderEnabled =
+    currentFilters.orderBy !== DEFAULT_ORDER_BY;
 
   const handleShowJustFavorites = useCallback(() => {
-    setShowJustFavorites((previousValue) => !previousValue);
-  }, [setShowJustFavorites]);
+    setSearchParams((previous) => {
+      if (showJustFavorites) {
+        previous.delete("showJustFavorites");
+        return previous;
+      }
+
+      previous.set("showJustFavorites", "true");
+      return previous;
+    });
+  }, [setSearchParams, showJustFavorites]);
 
   return {
     characters,
     favoriteHeroes,
-    filters,
+    filters: currentFilters,
     handleSearch,
     handleFavorite,
     handleAlphabeticalOrder,

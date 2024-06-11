@@ -1,0 +1,23 @@
+.hero_page_wrapper {
+  background-color: #e7f6e7;
+  position: relative;
+  height: 100%;
+  min-height: 100dvh; /*TODO: IMPLEMENTAR ALGO MELHOR*/
+  z-index: 0;
+}
+
+.hero_page_wrapper::before {
+  content: attr(data-text);
+  position: absolute;
+  right: 0;
+  top: 10px;
+  z-index: -1;
+  font-size: 420px;
+  font-weight: bolder;
+  color: white;
+}
+
+.container {
+  margin: 62px auto;
+  max-width: 1100px;
+}

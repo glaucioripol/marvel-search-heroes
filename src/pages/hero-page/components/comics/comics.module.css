@@ -1,0 +1,15 @@
+.comics_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 62px;
+  list-style: none;
+}
+
+.comics_title {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  color: var(--grey-2);
+  margin-bottom: 24px;
+  display: inline-block;
+  margin-block: 72px;
+}
