@@ -4,6 +4,7 @@ exports[`HeroCard component > should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="_card_5168af"
+    data-testid="hero-card"
   >
     <figure
       class="_card__figure_5168af"

@@ -17,7 +17,11 @@ export function HeroSection({
         <div>
           <div className={styles.hero_details__name_wrapper}>
             <h1 className={styles.hero_details__name}>{hero?.name}</h1>
-            <LikeButton liked={isLiked} onLikeChange={onLikeChange} />
+            <LikeButton
+              liked={isLiked}
+              onLikeChange={onLikeChange}
+              dataTestId="like-button-hero-page"
+            />
           </div>
 
           <p className={styles.hero_details__description}>
