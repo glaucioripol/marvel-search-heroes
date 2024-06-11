@@ -2,6 +2,9 @@
 
 Projeto de uma SPA de duas páginas, uma página de busca de heróis da Marvel e outra página de detalhes do herói.
 
+- [Requisitos](./docs/00_requisitos.md)
+- [Link do projeto](https://buscador-de-herois-marvel.vercel.app/)
+
 ## Páginas
 
 - [Busca de heróis](#busca-de-heróis)
@@ -21,19 +24,20 @@ Projeto de uma SPA de duas páginas, uma página de busca de heróis da Marvel e
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## Decisões de projeto
-
-- [00 - Requisitos](./docs/00_requisitos.md)
-- [01 - Escolhendo Escolha do vite](./docs/01_escolhendo_react_puro_com_vite.md)
-- [02 - Padronizadores de código e qualidade](./docs/02_padronizadores_de_codigo.md)
-
 ## Como rodar o projeto
+
+Obs:
+
+- Para rodar o projeto é necessário ter o [Node.js](https://nodejs.org/) instalado.
+- Todos os comandos só funcionaram se tiver configurado .env
+- Rode `nvm use` para usar a versão do node.js utilizada no projeto.
+  - caso não tenha a versão do node.js utilizada no projeto, instale com `nvm install`.
 
 ### Como rodar o projeto localmente
 
 ```bash
 # Clonar o repositório
-git clone <url-do-repositorio>
+git clone git@github.com:glaucioripol/marvel-search-heroes.git
 
 # Para usar a versão do node.js utilizada do projeto
 nvm use
@@ -43,4 +47,31 @@ npm install # ou yarn
 
 # Rodar o projeto
 npm run dev # ou yarn dev
+```
+
+### Como rodar os testes
+
+```bash
+# Rodar os testes
+
+npm run test # ou yarn test
+```
+
+### Como rodar os testes de e2e
+
+```bash
+# Rodar o projeto
+npm run dev # ou yarn dev
+
+# Rodar os testes de e2e
+
+npm run cy:run # ou yarn test:e2e
+```
+
+### Como rodar o build
+
+```bash
+# Rodar o build
+
+npm run build # ou yarn build
 ```

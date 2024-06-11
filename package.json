@@ -20,7 +20,8 @@
     "test:ci": "yarn test:coverage",
     "test:watch": "yarn test:base --watch --silent",
     "setup-msw": "npx msw init ./public",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.40.1",
