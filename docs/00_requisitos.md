@@ -12,7 +12,7 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
 - [x] Utilizar api da Marvel ( https://developer.marvel.com/docs );
 - [x] Disponibilizar em uma URL pública do projeto rodando para avaliação;
 - [x] Disponibilizar código em repositório Git de sua preferência, "commitando" cada fase do seu processo de desenvolvimento;
-- [x] Seguir layout em [link](./Telas/home.png), respeitando as páginas, features e componentes ( não será avaliado “pixel perfect” ).
+- [x] Seguir layout em [link](./Telas/home.png), respeitando as páginas, features e componentes.
 
 ## Requisitos funcionais
 
@@ -30,8 +30,6 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
   - [x] Exibir dados do personagem;
   - [x] Exibir últimos 10 quadrinhos lançados deste personagem (onSaleDate);
   - [x] Permitir o usuário favoritar/desfavoritar (dentro do limite de 5).
-
-- [ ] remover arquivos com mock das requests
 
 ## Bônus (não obrigatório)
 
