@@ -1,0 +1,13 @@
+.comic_card {
+  width: 155px;
+}
+
+.comic_card__title {
+  color: var(--grey-2);
+  font-weight: 600;
+  display: inline-block;
+  font-size: var(--font-x-small);
+  line-height: 1.5;
+  margin-block-start: 16px;
+  margin-inline-end: 12px;
+}

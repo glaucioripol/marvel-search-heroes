@@ -1,8 +1,8 @@
-/* hero details */
 .hero_page_wrapper {
   background-color: #e7f6e7;
   position: relative;
   height: 100%;
+  min-height: 100dvh; /*TODO: IMPLEMENTAR ALGO MELHOR*/
   z-index: 0;
 }
 
@@ -17,138 +17,7 @@
   color: white;
 }
 
-.hero_details {
-  display: flex;
-  gap: 84px;
-}
-
-.hero_details__image {
-  width: 520px;
-  height: 300px;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-.hero_details__name_wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.hero_details__name {
-  font-size: var(--font-xxl);
-  font-weight: 600;
-  color: var(--grey-2);
-  margin-block: 32px;
-}
-
-.hero_details__description {
-  font-size: var(--font-sm);
-  color: var(--grey-3);
-  line-height: 1.5;
-  text-align: left;
-
-  display: inline-block;
-  margin-block: 32px;
-}
-
-.hero_details__about_contents_numbers {
-  display: flex;
-  gap: 100px;
-}
-
-.hero_details__properties {
-  font-size: var(--font-x-sm);
-  color: var(--grey-5);
-  font-weight: 600;
-}
-
-.hero_details__properties_number {
-  align-items: flex-end;
-  color: var(--grey-5);
-  display: flex;
-  font-weight: thin;
-  gap: 18px;
-  margin-block: 16px 32px;
-  height: 32px;
-}
-
-.hero_details__rating {
-  align-items: center;
-  display: flex;
-  gap: 6px;
-  margin-block-end: 32px;
-}
-
-.hero_details__rating__text,
-.hero_details__last_comics__title {
-  color: var(--grey-5);
-  font-size: var(--font-sm);
-  font-weight: 500;
-}
-
-.hero_details__rating__stars {
-  align-items: center;
-  display: flex;
-  gap: 6px;
-}
-
-.hero_details__rating__text + .hero_details__rating__stars {
-  margin-inline-start: 12px;
-}
-
-.hero_details__last_comics {
-  margin-block: 40px 120px;
-}
-
-.hero_details__last_comics__date {
-  color: var(--grey-5);
-  display: inline-block;
-  font-size: var(--font-x-sm);
-  font-weight: thin;
-  margin-inline-start: 12px;
-}
-
-@media (max-width: 768px) {
-  .hero_details {
-    flex-direction: column;
-    gap: 0;
-    padding: 0 20px;
-  }
-}
-
 .container {
+  margin: 62px auto;
   max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* comics */
-.comics_wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 62px;
-  list-style: none;
-}
-
-.comics_title {
-  font-size: var(--font-xl);
-  font-weight: 600;
-  color: var(--grey-2);
-  margin-bottom: 24px;
-  display: inline-block;
-  margin-block: 72px;
-}
-
-.comic_card {
-  width: 155px;
-}
-
-.comic_card__title {
-  color: var(--grey-2);
-  font-weight: 600;
-  display: inline-block;
-  font-size: var(--font-x-small);
-  line-height: 1.5;
-  margin-block-start: 16px;
-  margin-inline-end: 12px;
 }

@@ -24,13 +24,14 @@ Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
   - [x] Permitir mostrar apenas os personagens favoritos;
   - [x] Permitir o usuário favoritar/desfavoritar até 5 personagens;
   - [x] Permitir o usuário navegar para a página de detalhe do personagem.
-  - [ ] Permitir mudar a quantidade de itens por página.
-  - [ ] permitir paginar a lista de personagens.
 
 - [x] Página de detalhe do personagem:
+
   - [x] Exibir dados do personagem;
   - [x] Exibir últimos 10 quadrinhos lançados deste personagem (onSaleDate);
   - [x] Permitir o usuário favoritar/desfavoritar (dentro do limite de 5).
+
+- [ ] remover arquivos com mock das requests
 
 ## Bônus (não obrigatório)
 

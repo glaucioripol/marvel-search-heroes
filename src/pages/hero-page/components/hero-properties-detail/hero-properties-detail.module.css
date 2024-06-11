@@ -1,0 +1,64 @@
+.hero_details__about_contents_numbers {
+  display: flex;
+  gap: 100px;
+}
+
+.hero_details__properties {
+  font-size: var(--font-x-sm);
+  color: var(--grey-5);
+  font-weight: 600;
+}
+
+.hero_details__properties_number {
+  align-items: flex-end;
+  color: var(--grey-5);
+  display: flex;
+  font-weight: thin;
+  gap: 18px;
+  margin-block: 16px 32px;
+  height: 32px;
+}
+
+.hero_details__rating {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  margin-block-end: 32px;
+}
+
+.hero_details__rating__text,
+.hero_details__last_comics__title {
+  color: var(--grey-5);
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+
+.hero_details__rating__stars {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
+.hero_details__rating__text + .hero_details__rating__stars {
+  margin-inline-start: 12px;
+}
+
+.hero_details__last_comics {
+  margin-block: 40px 120px;
+}
+
+.hero_details__last_comics__date {
+  color: var(--grey-5);
+  display: inline-block;
+  font-size: var(--font-x-sm);
+  font-weight: thin;
+  margin-inline-start: 12px;
+}
+
+@media (max-width: 768px) {
+  .hero_details {
+    flex-direction: column;
+    gap: 0;
+    padding: 0 20px;
+  }
+}

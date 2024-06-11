@@ -1,0 +1,8 @@
+.top_bar {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 1200px;
+  padding: 44px 0;
+}

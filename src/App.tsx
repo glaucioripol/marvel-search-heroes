@@ -3,8 +3,8 @@ import { HeroPage, Homepage } from "@/pages";
 
 import { ReactQueryProvider } from "./libs";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { mockHero } from "./__fixtures__/hero";
 // import { getCharacterById } from "./services";
-import { mockHero } from "./delete";
 
 const routes = createBrowserRouter([
   { path: "/", element: <Homepage /> },
